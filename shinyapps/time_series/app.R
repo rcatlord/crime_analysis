@@ -13,8 +13,6 @@ ui <- shinyUI(fluidPage(
            br(),
            dygraphOutput("dygraph"),
            br(),
-           br(),
-           br(),
            uiOutput("category", align = "center")
     ))))
 
