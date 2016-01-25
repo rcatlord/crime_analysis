@@ -40,7 +40,7 @@ server <- function(input, output) {
     h1$legend(enabled = F)
     h1$title(text = paste0("Crimes in ", input$borough))
     h1$subtitle(text = "(December 2014 - November 2015)")
-    h1$set(width = 1300, height = 400)
+    h1$set(width = 900, height = 400)
     return(h1)
   })
   
