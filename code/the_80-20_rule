@@ -1,5 +1,6 @@
-# The 80-20 rule
-# A small proportion of places, offenders, victims, and property account for most the crime.
+## The 80-20 rule ##
+
+# A small proportion of places, offenders, victims, and property account for most of the crime.
 
 # Load the necessary packages
 library(dplyr)
