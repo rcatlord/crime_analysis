@@ -43,6 +43,7 @@ levels(crimes$Borough) # check the different boroughs
 
 # Select and rename some of the variables
 crimes <- crimes %>% select(month = Month,
+                            location = Location,
                             borough = Borough,
                             lsoa = LSOA,
                             category = Crime.type,
