@@ -20,13 +20,14 @@ crimes %>%
 # Plot the top 10 repeat locations using the leaflet package
 rpt_locs <- crimes %>% 
   filter(category == "Robbery") %>% 
-  group_by(long, lat, borough) %>%
+  group_by(long, lat, location, borough) %>%
   summarise(n = n()) %>%
   ungroup() %>%
   arrange(desc(n)) %>% 
   slice(1:10)
 
 popup <- paste0("<strong>Frequency: </strong>", rpt_locs$n,
+  "<br><strong>Location: </strong>", rpt_locs$location,
   "<br><strong>Borough: </strong>", rpt_locs$borough)
 
 library(leaflet)
