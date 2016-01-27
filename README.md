@@ -17,7 +17,7 @@ Visit [data.police.uk](https://data.police.uk/data/) and download some police re
 
 #### Shiny apps
 
-This repository also includes several simple shiny apps that allow users to interactively visualise crime data.
+This repository also includes several simple [shiny](http://shiny.rstudio.com) apps that allow users to interactively visualise crime data.
 
 * bar charts
 * time series
