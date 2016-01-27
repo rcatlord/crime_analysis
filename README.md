@@ -15,14 +15,14 @@ Visit [data.police.uk](https://data.police.uk/data/) and download some police re
 * calculating rates of crimes (forthcoming)
 * point pattern analysis (forthcoming)
 
-### Shiny apps
+#### Shiny apps
 
 This repository also includes several simple shiny apps that allow users to interactively visualise crime data.
 
 * bar charts
 * time series
 
-### Links
+#### Links
 
 * Clarke, R.V., & J.E. Eck. (2005). [Crime Analysis for Problem Solvers—In 60 Small Steps](http://www.popcenter.org/library/reading/pdfs/55stepsUK.pdf). Washington, DC: Center for Problem Oriented Policing.
 
