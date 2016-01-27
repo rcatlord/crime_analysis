@@ -15,7 +15,7 @@ Download R from [https://cran.r-project.org](https://cran.r-project.org), then v
 * calculating rates of crime (forthcoming)
 * point pattern analysis (forthcoming)
 
-There are also several scripts to create simple data visualisation including Cleveland-style dotplots and calendar heatmaps.
+There are also several scripts to create simple data visualisations including Cleveland-style dotplots and calendar heatmaps.
 
 #### Shiny apps
 
