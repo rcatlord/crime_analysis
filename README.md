@@ -1,6 +1,6 @@
 ## Crime analysis in R
 
-This growing repository contains scripts that enable users to tidy, manipulate, summarise and (interactively) visualise police recorded crime data in R.
+This growing repository contains scripts that enable users to load, tidy, manipulate, summarise and (interactively) visualise police recorded crime data in R.
 
 #### Preparation
 
@@ -14,6 +14,8 @@ Download R from [https://cran.r-project.org](https://cran.r-project.org) then vi
 * repeat locations
 * calculating rates of crimes (forthcoming)
 * point pattern analysis (forthcoming)
+
+There are also several scripts to create simple data visualisation including Cleveland-style dotplots and calendar heatmaps.
 
 #### Shiny apps
 
