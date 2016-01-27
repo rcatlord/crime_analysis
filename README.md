@@ -26,6 +26,6 @@ This repository also includes several simple [shiny](http://shiny.rstudio.com) a
 
 #### Links
 
-* Clarke, R.V., & J.E. Eck. (2005). [Crime Analysis for Problem Solvers—In 60 Small Steps](http://www.popcenter.org/library/reading/pdfs/55stepsUK.pdf). Washington, DC: Center for Problem Oriented Policing.
+* Clarke, R.V., & J.E. Eck. (2003). [Become a Problem Solving Crime Analyst In 55 small steps](http://www.popcenter.org/library/reading/pdfs/55stepsUK.pdf). Jill Dando Institute of Crime Science, University College London.
 * Tompson, L., Johnson, S., Ashby, M., Perkins, C., & Edwards, P. (2015). [UK open source crime data: accuracy and possibilities for research](http://www.tandfonline.com/doi/full/10.1080/15230406.2014.972456). Cartography and Geographic Information Science, 42(2), 97-111.
 
