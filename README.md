@@ -1,10 +1,10 @@
 ## Crime analysis in R
 
-This growing repository contains R scripts that enable users to tidy, manipulate, summarise and (interactively) visualise police recorded crime data.
+This growing repository contains scripts that enable users to tidy, manipulate, summarise and (interactively) visualise police recorded crime data in R.
 
 #### Preparation
 
-Visit [data.police.uk](https://data.police.uk/data/) and download some police recorded crime data. The data will download as CSV files that are compressed into a zip file. Extract the CSV files into a folder on your computer. 
+Download R from [https://cran.r-project.org](https://cran.r-project.org) then visit [data.police.uk](https://data.police.uk/data/) to get hold of some open police recorded crime data. The data will download as CSV files that are compressed into a zip file. Extract the CSV files into a folder on your computer. 
 
 #### The scripts
   
