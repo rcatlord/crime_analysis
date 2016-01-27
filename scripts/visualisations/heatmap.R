@@ -34,7 +34,6 @@ ggplot(df, aes(x=category, y=month, fill=n)) +
 ggsave("calendar_heatmap.png", scale = 1, dpi = 300)
 
 ## Using d3heatmap
-
 library(d3heatmap)
 
 df <- crimes %>%
