@@ -4,14 +4,7 @@
 Here are some data visualisations that can be reproduced using the R scripts in this repository:
 
 
-#### Cleveland-style dotplot
-
-
-<img src="https://github.com/cat-lord/crime_analysis/blob/master/images/dotplot.png" alt="dotplot" width="250">
-
-
-#### Heatmap
-
-
-<img src="https://github.com/cat-lord/crime_analysis/blob/master/images/calendar_heatmap.png" alt="calendar_heatmap" width="250">
+Cleveland-style dotplot             |  Heatmap
+:-------------------------:|:-------------------------:
+![](https://github.com/cat-lord/crime_analysis/blob/master/images/dotplot.png)  |  ![](https://github.com/cat-lord/crime_analysis/blob/master/images/calendar_heatmap.png)
 
