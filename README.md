@@ -9,11 +9,13 @@ Download R from [https://cran.r-project.org](https://cran.r-project.org).
 Then read some sample crime data using into your R session:
 
 ```
-# download the crime_data.csv from GitHub and save it in a f0lder on your computer 
+# download the crime_data.csv from GitHub and save it in a folder on your computer 
 download.file("https://raw.github.com/cat-lord/crime_analysis/master/data/crime_data.csv", 
               destfile = "~/crime_data.csv", method = "curl") 
+
 # set the working directory to where the crime_data.csv file is stored
 setwd("~/")
+
 # load crime_data.csv into your R session
 crimes <- read.csv("crime_data.csv", header = T)
 ```
