@@ -6,7 +6,7 @@ This growing repository contains scripts that enable users to load, tidy, manipu
 
 Download R from [https://cran.r-project.org](https://cran.r-project.org). 
 
-Then read some sample crime data using into your R session:
+Then load some sample crime data into your R session:
 
 ```
 # download the crime_data.csv from GitHub and save it in a folder on your computer 
@@ -34,7 +34,7 @@ The scripts and shiny apps will work with any data downloaded from [data.police.
 
 There are also several scripts to create simple data visualisations including Cleveland-style dotplots and calendar heatmaps.
 
-#### Shiny apps
+#### shiny apps
 
 This repository also includes several simple [shiny](http://shiny.rstudio.com) apps that allow users to interactively visualise crime data.
 
