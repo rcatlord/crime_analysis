@@ -2,11 +2,11 @@
 
 This growing repository contains scripts that enable users to load, tidy, manipulate, summarise and (interactively) visualise police recorded crime data in R.
 
-#### Preparation
+#### Getting started
 
 Download R from [https://cran.r-project.org](https://cran.r-project.org). 
 
-Then download the crime [data](https://github.com/cat-lord/crime_analysis/tree/master/data) stored in this repository. Save it on a folder on your computer and point R to that directory using the ```setwd(~/..)``` function. The data are crimes recorded by Greater Manchester Police between December 2014 and November 2015 which were downloaded from [data.police.uk](https://data.police.uk).
+Then download [crime_data.csv](https://github.com/cat-lord/crime_analysis/blob/master/data/crime_data.csv) which is stored in this repository. Save the CSV file in a folder on your computer and point R to that directory using the ```setwd(~/..)``` function. The data are crimes recorded by Greater Manchester Police between December 2014 and November 2015 which were downloaded from [data.police.uk](https://data.police.uk).
 
 The scripts and shiny apps will work with any data downloaded from [data.police.uk](https://data.police.uk) but they will need to be tidy first. Follow the script [here](https://github.com/cat-lord/crime_analysis/blob/master/data/tidying_data.R) for instructions.
 
