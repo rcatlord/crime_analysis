@@ -9,7 +9,7 @@ Download R from [https://cran.r-project.org](https://cran.r-project.org).
 Then load some sample crime data into your R session:
 
 ```
-# download the crime_data.csv from GitHub and save it in a folder on your computer 
+# download the crime_data.csv file from this repository and save it in a folder on your computer 
 download.file("https://raw.github.com/cat-lord/crime_analysis/master/data/crime_data.csv", 
               destfile = "~/crime_data.csv", method = "curl") 
 
