@@ -2,6 +2,8 @@
 ## Data visualisations
 
 Here are some data visualisations that can be reproduced using the R scripts in this repository:
+<br>
+<br>
 
 
 Cleveland-style dotplot             |  Heatmap
