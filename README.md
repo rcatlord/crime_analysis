@@ -4,11 +4,14 @@ This growing repository contains scripts that enable users to load, tidy, manipu
 
 #### Preparation
 
-Download R from [https://cran.r-project.org](https://cran.r-project.org), then visit [data.police.uk](https://data.police.uk/data/) to get hold of some open source police recorded crime data. The data will download as CSV files that are compressed into a zip file. Extract the CSV files into a folder on your computer. 
+Download R from [https://cran.r-project.org](https://cran.r-project.org). 
+
+Then download the crime [data](https://github.com/cat-lord/crime_analysis/tree/master/data) stored in this repository. Save it on a folder on your computer and point R to that directory using the ```setwd(~/..)``` function. The data are crimes recorded by Greater Manchester Police between December 2014 and November 2015 which were downloaded from [data.police.uk](https://data.police.uk).
+
+The scripts and shiny apps will work with any data downloaded from [data.police.uk](https://data.police.uk) but they will need to be tidy first. Follow the script [here](https://github.com/cat-lord/crime_analysis/blob/master/data/tidying_data.R) for instructions.
 
 #### The scripts
   
-* tidying data
 * summary statistics
 * the 80-20 rule
 * repeat locations
