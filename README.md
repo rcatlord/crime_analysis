@@ -6,7 +6,19 @@ This growing repository contains scripts that enable users to load, tidy, manipu
 
 Download R from [https://cran.r-project.org](https://cran.r-project.org). 
 
-Then download [crime_data.csv](https://github.com/cat-lord/crime_analysis/blob/master/data/crime_data.csv) which is stored in this repository. Save the CSV file in a folder on your computer and point R to that directory using the ```setwd(~/..)``` function. The data are crimes recorded by Greater Manchester Police between December 2014 and November 2015 which were downloaded from [data.police.uk](https://data.police.uk).
+Then read some sample crime data using into your R session:
+
+```
+# download the crime_data.csv from GitHub and save it in a f0lder on your computer 
+download.file("https://raw.github.com/cat-lord/crime_analysis/master/data/crime_data.csv", 
+              destfile = "~/crime_data.csv", method = "curl") 
+# set the working directory to where the crime_data.csv file is stored
+setwd("~/")
+# load crime_data.csv into your R session
+crimes <- read.csv("crime_data.csv", header = T)
+```
+
+The data are crimes recorded by Greater Manchester Police between December 2014 and November 2015 which were downloaded from [data.police.uk](https://data.police.uk).
 
 The scripts and shiny apps will work with any data downloaded from [data.police.uk](https://data.police.uk) but they will need to be tidy first. Follow the script [here](https://github.com/cat-lord/crime_analysis/blob/master/data/tidying_data.R) for instructions.
 
