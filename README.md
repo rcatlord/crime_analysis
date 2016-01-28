@@ -22,13 +22,13 @@ crimes <- read.csv("crime_data.csv", header = T)
 
 The data are crimes recorded by Greater Manchester Police between December 2014 and November 2015 which were downloaded from [data.police.uk](https://data.police.uk).
 
-The scripts and shiny apps will work with any data downloaded from [data.police.uk](https://data.police.uk) but they will need to be tidy first. Follow the script [here](https://github.com/cat-lord/crime_analysis/blob/master/data/tidying_data.R) for instructions.
+The scripts and [shiny](http://shiny.rstudio.com) apps will work with any data downloaded from [data.police.uk](https://data.police.uk) but they will need to be [tidy](http://www.jstatsoft.org/index.php/jss/article/view/v059i10/v59i10.pdf) first. Follow the [tidying_data](https://github.com/cat-lord/crime_analysis/blob/master/data/tidying_data.R) script for instructions.
 
 #### The scripts
   
-* summary statistics
-* the 80-20 rule
-* repeat locations
+* [summary statistics](https://github.com/cat-lord/crime_analysis/blob/master/scripts/summary_statistics.R)
+* [the 80-20 rule](https://github.com/cat-lord/crime_analysis/blob/master/scripts/the_80-20_rule.R)
+* [repeat locations](https://github.com/cat-lord/crime_analysis/blob/master/scripts/repeat_locations.R)
 * calculating rates of crime (forthcoming)
 * point pattern analysis (forthcoming)
 
@@ -38,7 +38,7 @@ There are several scripts to create simple [data visualisations](https://github.
 
 #### Shiny apps
 
-This repository includes several simple [shiny](http://shiny.rstudio.com) apps that allow users to interactively visualise crime data.
+This repository includes several simple [shiny apps](https://github.com/cat-lord/crime_analysis/tree/master/shinyapps) that allow users to interactively visualise crime data.
 
 * bar charts
 * time series
