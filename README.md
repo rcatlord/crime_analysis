@@ -32,11 +32,13 @@ The scripts and shiny apps will work with any data downloaded from [data.police.
 * calculating rates of crime (forthcoming)
 * point pattern analysis (forthcoming)
 
-There are also several scripts to create simple [data visualisations](https://github.com/cat-lord/crime_analysis/tree/master/scripts/data_visualisations) including Cleveland-style dotplots and calendar heatmaps.
+#### Data visualisations
+
+There are several scripts to create simple [data visualisations](https://github.com/cat-lord/crime_analysis/tree/master/data_visualisations) including Cleveland-style dotplots and calendar heatmaps.
 
 #### Shiny apps
 
-This repository also includes several simple [shiny](http://shiny.rstudio.com) apps that allow users to interactively visualise crime data.
+This repository includes several simple [shiny](http://shiny.rstudio.com) apps that allow users to interactively visualise crime data.
 
 * bar charts
 * time series
