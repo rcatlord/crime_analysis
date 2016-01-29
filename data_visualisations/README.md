@@ -5,9 +5,11 @@ Here are some data visualisations that can be reproduced using the R scripts in 
 <br>
 <br>
 
+#### Cleveland-style dotplot 
+<img src="https://github.com/cat-lord/crime_analysis/blob/master/images/dotplot.png" alt="dotplot" width="400">
 
-Cleveland-style dotplot    |  Heatmap                 | Waffle chart
-:-------------------------:|:------------------------:|:-------------------------:
-![](https://github.com/cat-lord/crime_analysis/blob/master/images/dotplot.png)  |  ![](https://github.com/cat-lord/crime_analysis/blob/master/images/calendar_heatmap.png)
-![](https://github.com/cat-lord/crime_analysis/blob/master/images/waffle_chart.png)
+#### Calendar heatmap
+<img src="https://github.com/cat-lord/crime_analysis/blob/master/images/calendar_heatmap.png" alt="heatmap" width="400">
 
+#### Waffle chart
+<img src="https://github.com/cat-lord/crime_analysis/blob/master/images/waffle_chart.png" alt="dotplot" width="600">
