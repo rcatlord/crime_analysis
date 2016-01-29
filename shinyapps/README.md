@@ -4,8 +4,9 @@ This sub-directory contains a number of simple [shiny](http://shiny.rstudio.com)
 
 ```
 library(shiny)
-runGitHub("cat-lord/crime_analysis", subdir = "shinyapps/time_series/")
 runGitHub("cat-lord/crime_analysis", subdir = "shinyapps/bar_charts/")
+runGitHub("cat-lord/crime_analysis", subdir = "shinyapps/dotplot/")
+runGitHub("cat-lord/crime_analysis", subdir = "shinyapps/time_series/")
 ```
 
 
