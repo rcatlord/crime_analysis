@@ -10,6 +10,7 @@ ui <- shinyUI(fluidPage(
            br(),
            div(h4(textOutput("title"), align = "center"), style = "color:black"),
            br(),
+           br(),
            dygraphOutput("dygraph", height = 200),
            br(),
            br(),
