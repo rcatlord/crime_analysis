@@ -2,7 +2,7 @@
 
 library(shiny) ; library(dplyr) ; library(rcdimple)
 
-crimes <- read.csv("crime_data.csv", header = T) %>%
+crimes <- read.csv("https://raw.githubusercontent.com/cat-lord/crime_analysis/master/sample_data/crime_data.csv", header = T) %>%
   filter(month == "2015-11-01") %>% 
   group_by(category, borough) %>%
   summarise(n = n())
