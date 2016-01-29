@@ -19,7 +19,7 @@ crimes <- read.csv("crime_data.csv", header = T)
 
 The data are crimes recorded by Greater Manchester Police between December 2014 and November 2015 which were downloaded from [data.police.uk](https://data.police.uk).
 
-The scripts and [shiny](http://shiny.rstudio.com) apps will work with any data downloaded from [data.police.uk](https://data.police.uk) but they will need to be [tidy](http://www.jstatsoft.org/index.php/jss/article/view/v059i10/v59i10.pdf) first. Follow the [tidying_data](https://github.com/cat-lord/crime_analysis/blob/master/data/tidying_data.R) script for instructions.
+The scripts and [shiny](http://shiny.rstudio.com) apps will work with any data downloaded from [data.police.uk](https://data.police.uk) but they will need to share the same structure, i.e. be [tidy](https://vimeo.com/33727555) first. Follow the [tidying_data](https://github.com/cat-lord/crime_analysis/blob/master/data/tidying_data.R) script for instructions.
 
 #### The scripts
   
