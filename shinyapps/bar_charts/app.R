@@ -2,7 +2,7 @@
 
 library(shiny) ; library(tidyr) ; library(dplyr) ; library(rCharts)
 
-crimes <- read.csv("crime_data.csv", header = T) %>% 
+crimes <- read.csv("https://raw.githubusercontent.com/cat-lord/crime_analysis/master/sample_data/crime_data.csv", header = T) %>% 
   group_by(borough, category) %>%
   summarize(n = n())
 
