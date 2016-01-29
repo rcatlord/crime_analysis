@@ -2,7 +2,7 @@
 
 library(shiny) ; library(dplyr) ; library(dygraphs) ; library(xts) ; library(DT)
 
-crimes <- read.csv("crime_data.csv", header = T)
+crimes <- read.csv("https://raw.githubusercontent.com/cat-lord/crime_analysis/master/sample_data/crime_data.csv", header = T)
 
 ui <- shinyUI(fluidPage(
   fluidRow(
