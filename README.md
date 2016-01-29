@@ -38,6 +38,7 @@ There are several scripts to create simple [data visualisations](https://github.
 This repository includes several simple [shiny apps](https://github.com/cat-lord/crime_analysis/tree/master/shinyapps) that allow users to interactively visualise crime data.
 
 * [bar charts](https://github.com/cat-lord/crime_analysis/tree/master/shinyapps/bar_charts)
+* [choropleth map](https://github.com/cat-lord/crime_analysis/tree/master/shinyapps/choropleth_map)
 * [dotplot](https://github.com/cat-lord/crime_analysis/tree/master/shinyapps/dotplot)
 * [time series](https://github.com/cat-lord/crime_analysis/tree/master/shinyapps/time_series)
 
