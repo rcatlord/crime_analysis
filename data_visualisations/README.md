@@ -6,7 +6,8 @@ Here are some data visualisations that can be reproduced using the R scripts in 
 <br>
 
 
-Cleveland-style dotplot             |  Heatmap
-:-------------------------:|:-------------------------:
+Cleveland-style dotplot    |  Heatmap                 | Waffle chart
+:-------------------------:|:------------------------:|:-------------------------:
 ![](https://github.com/cat-lord/crime_analysis/blob/master/images/dotplot.png)  |  ![](https://github.com/cat-lord/crime_analysis/blob/master/images/calendar_heatmap.png)
+![](https://github.com/cat-lord/crime_analysis/blob/master/images/waffle_chart.png)
 
