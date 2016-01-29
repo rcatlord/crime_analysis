@@ -20,7 +20,7 @@ df <- crimes %>%
   ungroup() %>%
   arrange(desc(n))
 
-# Create a dotplot using ggplot2
+# Using ggplot2
 library(ggplot2)
 
 ggplot(df, aes(x = reorder(borough, n), y = n)) + 
@@ -35,7 +35,7 @@ ggplot(df, aes(x = reorder(borough, n), y = n)) +
 # Save the dotplot as a png file
 ggsave("dotplot.png", scale = 1.5, dpi = 300)
 
-# Create an interactive dotplot using rcdimple
+# Using rcdimple
 library(rcdimple)
 
 crimes %>% 
