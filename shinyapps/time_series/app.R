@@ -10,8 +10,8 @@ ui <- shinyUI(fluidPage(
            br(),
            div(h4(textOutput("title"), align = "center"), style = "color:black"),
            br(),
+           dygraphOutput("dygraph", height = 200),
            br(),
-           dygraphOutput("dygraph"),
            br(),
            uiOutput("category", align = "center")
     ))))
@@ -41,9 +41,13 @@ server <- function(input, output) {
         dySeries(label = "Crimes", color = "#3182bd", fillGraph = TRUE, strokeWidth = 3, drawPoints = TRUE, pointSize = 6) %>% 
         dyOptions(includeZero = TRUE, drawGrid = FALSE,
                   axisLineWidth = 2, axisLabelFontSize = 12) %>% 
-        dyLegend(show = "follow")
+        dyLegend(show = "follow") %>% 
+        dyCSS("dygraph.css") 
+        
     })
 
 }
+
+shinyApp(ui, server)
 
 shinyApp(ui, server)
