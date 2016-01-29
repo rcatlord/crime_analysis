@@ -46,6 +46,7 @@ crimes %>%
   dimple(x = "n", y = "borough", groups = "category", type = "bubble", height = 500, width = 1000) %>%
     xAxis(type = "addMeasureAxis", showGridlines = F, title = "Number of crimes") %>%
     yAxis(type = "addCategoryAxis", orderRule = "Frequency", showGridlines = F, title = "Borough") %>%
+    default_colors(RColorBrewer::brewer.pal(n=3,"Set1")) %>%
     add_title(html = paste0("<div style='text-align:center;width:100%'>
                                 <b style = 'font-size:100%;'>", paste('Crimes in Greater Manchester during November 2015'),
                             "</div>")) %>% 
