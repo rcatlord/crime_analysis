@@ -45,4 +45,4 @@ This repository includes several simple [shiny apps](https://github.com/cat-lord
 * Brunsdon, C., & Comber, L. (2015). [An Introduction to R for Spatial Analysis and Mapping](https://uk.sagepub.com/en-gb/eur/an-introduction-to-r-for-spatial-analysis-and-mapping/book241031). London: Sage.
 * Clarke, R.V., & J.E. Eck. (2003). [Become a Problem Solving Crime Analyst In 55 small steps](http://www.popcenter.org/library/reading/pdfs/55stepsUK.pdf). Jill Dando Institute of Crime Science, University College London.
 * Lovelace, R. & Cheshire, J. (2014 and ongoing). Introduction to visualising spatial data in R. 
-([PDF](https://cran.r-project.org/doc/contrib/intro-spatial-rl.pdf)| [GitHub repo](https://github.com/Robinlovelace/Creating-maps-in-R))
+([PDF](https://cran.r-project.org/doc/contrib/intro-spatial-rl.pdf) | [GitHub repo](https://github.com/Robinlovelace/Creating-maps-in-R))
