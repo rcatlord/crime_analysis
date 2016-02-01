@@ -43,7 +43,7 @@ server <- (function(input, output, session) {
   
   output$title <- renderText({
     req(input$category)
-    paste0(input$category, " offences by LSOA in Greater Manchester")
+    paste0(input$category, " offences by LSOA in Manchester")
   })
   
   output$period <- renderText({
