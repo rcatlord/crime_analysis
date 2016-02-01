@@ -1,36 +1,40 @@
 ## Choropleth map app ##
 
 # Load the necessary packages
-library(dplyr) ; library(rgdal) ; library(leaflet) ; library(classInt)
+library(dplyr) ; library(rgdal) ; library(leaflet) ; library(classInt) ; library(RColorBrewer)
 
 # Load the crime data
 crimes <- read.csv("crime_data.csv", header = T) %>% 
-  group_by(category, borough) %>%
+  filter(borough == "Manchester",
+         month == "2015-11-01") %>% 
+  group_by(category, lsoa, borough) %>%
   summarise(n = n()) %>% 
-  rename(CTYUA12NM = borough) %>% 
+  rename(LSOA11CD = lsoa) %>% 
   as.data.frame()
 
 # Load the borough boundary vector layer 
-boroughs <- readOGR("boroughs.geojson", "OGRGeoJSON")
+lsoa <- readOGR("manchester_lsoa.geojson", "OGRGeoJSON")
 
 ui <- shinyUI(fluidPage(
   fluidRow(
-    column(10, offset = 1, 
+    column(7, offset = 1,
            br(),
            div(h4(textOutput("title"), align = "center"), style = "color:black"),
            div(h5(textOutput("period"), align = "center"), style = "color:black"),
-           br(),
-           leafletOutput("map", height="300"),
-           br(),
-           uiOutput("category", align = "center")
-    ))))
+           br())),
+  fluidRow(
+    column(7, offset = 1,
+           leafletOutput("map", height="600")),
+    column(3,
+           uiOutput("category", align = "left")))
+  ))
 
 server <- (function(input, output, session) {
   
   output$category <- renderUI({
     selectInput("category", "Select a crime category:",
                 choices = levels(crimes$category),
-                selected = "Robbery")
+                selected = "Burglary")
   })  
   
   selected <- reactive({
@@ -38,42 +42,59 @@ server <- (function(input, output, session) {
   })
   
   output$title <- renderText({
-    paste0(input$category, " offences in Greater Manchester")
+    req(input$category)
+    paste0(input$category, " offences in Manchester")
   })
   
   output$period <- renderText({
-    paste("between December 2014 and November 2015")
+    req(input$category)
+    paste("during November 2015")
   })
   
   output$map <- renderLeaflet({
     req(input$category)
-    boroughs@data <- left_join(boroughs@data, selected())
     
+    lsoa@data <- left_join(lsoa@data, selected(), by = "LSOA11CD")
     
-    pal <- colorFactor(c("#f1eef6", "#bdc9e1", "#74a9cf", "#2b8cbe", "#045a8d"), 
-                        domain = boroughs$n)
-    labels <- round(classIntervals(boroughs$n, 4, style="quantile")$brks, 0)
-
-    popup <- paste0("<strong>Borough: </strong>",
-                    boroughs$CTYUA12NM,
+    lsoa$rate <- round((lsoa$n / lsoa$pop_All.Ag) * 1000, 1)
+    
+    palette <- brewer.pal(5, "Oranges")
+    
+    pal_n <- classIntervals(lsoa$n, n=5, style="quantile")
+    lsoa$col_n <- findColours(pal_n, palette)
+    
+    pal_rate <- classIntervals(lsoa$rate, n=5, style="quantile")
+    lsoa$col_rate <- findColours(pal_rate, palette)
+    
+    popup_n <- paste0("<strong>LSOA: </strong>",
+                    lsoa$LSOA11CD,
                     "<br><strong>Category: </strong>",
-                    boroughs$category,
-                    "<br><strong>Crimes: </strong>",
-                    boroughs$n)
+                    lsoa$category,
+                    "<br><strong>Count: </strong>",
+                    lsoa$n)
     
-    leaflet(boroughs) %>% 
+    popup_rate <- paste0("<strong>Category: </strong>",
+                          lsoa$category,
+                          "<br><strong>LSOA: </strong>",
+                          lsoa$LSOA11CD,
+                          "<br><strong>Rate: </strong>",
+                          lsoa$rate)
+    
+    leaflet(lsoa) %>% 
       addProviderTiles("CartoDB.Positron") %>% 
-      fitBounds(-2.730521, 53.327298, -1.909622, 53.685719) %>%
-      addPolygons(data = boroughs, fillColor = ~pal(n), fillOpacity = 0.8, 
-                  color = "white", weight = 2, popup = popup) %>% 
-      addLegend(colors = RColorBrewer::brewer.pal(5, "PuBu"),
-                opacity = 0.8, 
-                position = 'bottomright', 
-                title = "Number of crimes", 
-                labels = labels)
+      addPolygons(data = lsoa, fillColor = ~col_n, fillOpacity = 0.7, 
+                  color = "#bdbdbd", weight = 2, popup = popup_n, group = "Count") %>% 
+      addPolygons(data = lsoa, fillColor = ~col_rate, fillOpacity = 0.7, 
+                  color = "#bdbdbd", weight = 2, popup = popup_rate, group = "Rate per 1000 population") %>% 
+      addLayersControl(
+      baseGroups = c("Count", "Rate per 1000 population"),
+      options = layersControlOptions(collapsed = FALSE)) %>% 
+      addLegend(position = "bottomright", 
+                colors = c(RColorBrewer::brewer.pal(5, "Oranges"), "#bdbdbd"),
+                labels = c("0% - 20%", "20% - 40%", "40% - 60%", "60% - 80%", "80% - 100%", "No crime"), 
+                opacity = 0.7,
+                title = "Quantile ranges")
   })
-  
-
   
 })
 
