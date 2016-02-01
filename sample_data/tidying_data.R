@@ -32,8 +32,8 @@ glimpse(crimes)
 # Convert ‘Month’ to a date variable
 crimes$Month <- parse_date_time(crimes$Month, "ym")
 
-# Split LSOA.name into two new variables with Borough and LSOA code information
-crimes <- separate(crimes, LSOA.name, into = c("Borough", "LSOA"), sep = -5)
+# Split LSOA.name and retain just the Borough name
+crimes <- separate(crimes, LSOA.name, into = c("Borough", "x"), sep = -5)
 
 # Trim the trailing space on 'Borough' and convert it to a factor
 library(stringr)
@@ -45,7 +45,7 @@ levels(crimes$Borough) # check the different boroughs
 crimes <- crimes %>% select(month = Month,
                             location = Location,
                             borough = Borough,
-                            lsoa = LSOA,
+                            lsoa = LSOA.code,
                             category = Crime.type,
                             long = Longitude,
                             lat = Latitude)
