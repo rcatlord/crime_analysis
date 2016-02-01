@@ -1,7 +1,7 @@
 ## Choropleth map app ##
 
 # Load the necessary packages
-library(dplyr) ; library(rgdal) ; library(leaflet) ; library(classInt) ; library(RColorBrewer)
+library(dplyr) ; library(rgdal) ; library(leaflet) ; library(classInt)
 
 # Load the crime data
 crimes <- read.csv("crime_data.csv", header = T) %>% 
@@ -25,9 +25,9 @@ ui <- shinyUI(fluidPage(
   fluidRow(
     column(7, offset = 1,
            leafletOutput("map", height="600")),
-    column(3,
+    column(2,
            uiOutput("category", align = "left")))
-  ))
+))
 
 server <- (function(input, output, session) {
   
@@ -43,7 +43,7 @@ server <- (function(input, output, session) {
   
   output$title <- renderText({
     req(input$category)
-    paste0(input$category, " offences in Manchester")
+    paste0(input$category, " offences by LSOA in Greater Manchester")
   })
   
   output$period <- renderText({
@@ -54,49 +54,28 @@ server <- (function(input, output, session) {
   output$map <- renderLeaflet({
     req(input$category)
     
-    lsoa@data <- left_join(lsoa@data, selected(), by = "LSOA11CD")
+    lsoa@data <- left_join(lsoa@data, selected())
     
     lsoa$rate <- round((lsoa$n / lsoa$pop_All.Ag) * 1000, 1)
     
-    palette <- brewer.pal(5, "Oranges")
-    
-    pal_n <- classIntervals(lsoa$n, n=5, style="quantile")
-    lsoa$col_n <- findColours(pal_n, palette)
-    
-    pal_rate <- classIntervals(lsoa$rate, n=5, style="quantile")
-    lsoa$col_rate <- findColours(pal_rate, palette)
-    
-    popup_n <- paste0("<strong>LSOA: </strong>",
+    qpal <- colorQuantile("YlGn", lsoa$rate, n = 5, na.color = "#bdbdbd")
+
+    popup <- paste0("<strong>LSOA: </strong>",
                     lsoa$LSOA11CD,
                     "<br><strong>Category: </strong>",
                     lsoa$category,
-                    "<br><strong>Count: </strong>",
-                    lsoa$n)
-    
-    popup_rate <- paste0("<strong>Category: </strong>",
-                          lsoa$category,
-                          "<br><strong>LSOA: </strong>",
-                          lsoa$LSOA11CD,
-                          "<br><strong>Rate: </strong>",
-                          lsoa$rate)
+                    "<br><strong>Rate: </strong>",
+                    lsoa$rate)
     
     leaflet(lsoa) %>% 
       addProviderTiles("CartoDB.Positron") %>% 
-      addPolygons(data = lsoa, fillColor = ~col_n, fillOpacity = 0.7, 
-                  color = "#bdbdbd", weight = 2, popup = popup_n, group = "Count") %>% 
-      addPolygons(data = lsoa, fillColor = ~col_rate, fillOpacity = 0.7, 
-                  color = "#bdbdbd", weight = 2, popup = popup_rate, group = "Rate per 1000 population") %>% 
-      addLayersControl(
-      baseGroups = c("Count", "Rate per 1000 population"),
-      options = layersControlOptions(collapsed = FALSE)) %>% 
-      addLegend(position = "bottomright", 
-                colors = c(RColorBrewer::brewer.pal(5, "Oranges"), "#bdbdbd"),
-                labels = c("0% - 20%", "20% - 40%", "40% - 60%", "60% - 80%", "80% - 100%", "No crime"), 
-                opacity = 0.7,
-                title = "Quantile ranges")
+      addPolygons(data = lsoa, fillColor = ~qpal(rate), fillOpacity = 0.7, 
+                  color = "white", weight = 2, popup = popup) %>% 
+      addLegend(pal = qpal, values = ~rate, opacity = 0.7,
+              position = 'bottomright', 
+              title = paste0(input$category, "<br>", " per 1,000 population"))
   })
-  
+
 })
 
 shinyApp(ui, server)
-
