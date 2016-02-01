@@ -16,7 +16,6 @@ runGitHub("cat-lord/crime_analysis", subdir = "shinyapps/choropleth_map/")
 ```
 
 <br>
-<br>
 #### Data sources
 The vector layer of Manchester's Lower Super Output Areas was downloaded from 
 [data.gov.uk](https://data.gov.uk/dataset/lower_layer_super_output_area_lsoa_boundaries) 
