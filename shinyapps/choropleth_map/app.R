@@ -24,7 +24,7 @@ ui <- shinyUI(fluidPage(
            br())),
   fluidRow(
     column(7, offset = 1,
-           leafletOutput("map", height="600"),
+           leafletOutput("map", height="530"),
            br(),
            actionButton("reset_button", "Reset view")),
     column(2,
@@ -54,8 +54,8 @@ server <- (function(input, output, session) {
     paste("during November 2015")
   })
   
-  lat <- 53.436377
-  lng <- -2.248373
+  lat <- 53.442788
+  lng <- -2.244708
   zoom <- 11
   
   output$map <- renderLeaflet({
