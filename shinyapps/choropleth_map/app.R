@@ -27,7 +27,7 @@ ui <- shinyUI(fluidPage(
            leafletOutput("map", height="530"),
            br(),
            actionButton("reset_button", "Reset view")),
-    column(2,
+    column(3,
            uiOutput("category", align = "left")))
 ))
 
