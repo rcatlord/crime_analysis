@@ -24,7 +24,8 @@ ui <- shinyUI(fluidPage(
            br())),
   fluidRow(
     column(7, offset = 1,
-           leafletOutput("map", height="600")),
+           leafletOutput("map", height="600"),
+           actionButton("reset_button", "Reset view")),
     column(2,
            uiOutput("category", align = "left")))
 ))
@@ -38,12 +39,13 @@ server <- (function(input, output, session) {
   })  
   
   selected <- reactive({
-    df <- filter(crimes, category==input$category)
+    subset(crimes,
+           category==input$category)
   })
   
   output$title <- renderText({
     req(input$category)
-    paste0(input$category, " offences by LSOA in Manchester")
+    paste0(input$category, " offences by LSOA in Greater Manchester")
   })
   
   output$period <- renderText({
@@ -51,30 +53,46 @@ server <- (function(input, output, session) {
     paste("during November 2015")
   })
   
+  lat <- 53.436377
+  lng <- -2.248373
+  zoom <- 11
+  
   output$map <- renderLeaflet({
-    req(input$category)
     
-    lsoa@data <- left_join(lsoa@data, selected())
-    
-    lsoa$rate <- round((lsoa$n / lsoa$pop_All.Ag) * 1000, 1)
-    
-    qpal <- colorQuantile("YlGn", lsoa$rate, n = 5, na.color = "#bdbdbd")
-
-    popup <- paste0("<strong>LSOA: </strong>",
-                    lsoa$LSOA11CD,
-                    "<br><strong>Category: </strong>",
-                    lsoa$category,
-                    "<br><strong>Rate: </strong>",
-                    lsoa$rate)
-    
-    leaflet(lsoa) %>% 
+    leaflet() %>% 
       addProviderTiles("CartoDB.Positron") %>% 
-      addPolygons(data = lsoa, fillColor = ~qpal(rate), fillOpacity = 0.7, 
-                  color = "white", weight = 2, popup = popup) %>% 
-      addLegend(pal = qpal, values = ~rate, opacity = 0.7,
-              position = 'bottomright', 
-              title = paste0(input$category, "<br>", " per 1,000 population"))
+      setView(lat = lat, lng = lng, zoom = zoom)
   })
+    
+    observe({
+  
+      lsoa@data <- left_join(lsoa@data, selected())
+      lsoa$rate <- round((lsoa$n / lsoa$pop_All.Ag) * 1000, 1)
+      
+      qpal <- colorQuantile("YlGn", lsoa$rate, n = 5, na.color = "#bdbdbd")
+      
+      popup <- paste0("<strong>LSOA: </strong>",
+                      lsoa$LSOA11CD,
+                      "<br><strong>Category: </strong>",
+                      lsoa$category,
+                      "<br><strong>Rate: </strong>",
+                      lsoa$rate)
+      
+      leafletProxy("map", data = lsoa) %>%
+        addProviderTiles("CartoDB.Positron") %>% 
+        clearShapes() %>% 
+        clearControls() %>% 
+        addPolygons(data = lsoa, fillColor = ~qpal(rate), fillOpacity = 0.7, 
+                  color = "white", weight = 2, popup = popup) %>%
+        addLegend(pal = qpal, values = ~rate, opacity = 0.7,
+                  position = 'bottomright', 
+                  title = paste0(input$category, "<br>", " per 1,000 population"))
+  })
+
+    observe({
+      input$reset_button
+      leafletProxy("map") %>% setView(lat = lat, lng = lng, zoom = zoom)
+    })      
 
 })
 
