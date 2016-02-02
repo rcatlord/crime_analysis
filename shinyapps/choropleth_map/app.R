@@ -25,6 +25,7 @@ ui <- shinyUI(fluidPage(
   fluidRow(
     column(7, offset = 1,
            leafletOutput("map", height="600"),
+           br(),
            actionButton("reset_button", "Reset view")),
     column(2,
            uiOutput("category", align = "left")))
@@ -33,7 +34,7 @@ ui <- shinyUI(fluidPage(
 server <- (function(input, output, session) {
   
   output$category <- renderUI({
-    selectInput("category", "Select a crime category:",
+    radioButtons("category", "Select a crime category:",
                 choices = levels(crimes$category),
                 selected = "Burglary")
   })  
