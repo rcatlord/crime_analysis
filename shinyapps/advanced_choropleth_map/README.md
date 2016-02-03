@@ -1,4 +1,4 @@
-### advanced choropleth map app
+### choropleth map app (advanced)
 
 This [shiny](http://shiny.rstudio.com) app uses the [leaflet](https://rstudio.github.io/leaflet/) R package.
 <br>
