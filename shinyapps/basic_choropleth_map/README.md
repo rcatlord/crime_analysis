@@ -12,7 +12,7 @@ Run the app locally in your R session with:
 
 ```
 library(shiny)
-runGitHub("cat-lord/crime_analysis", subdir = "shinyapps/choropleth_map/")
+runGitHub("cat-lord/crime_analysis", subdir = "shinyapps/basic_choropleth_map/")
 ```
 
 <br>
