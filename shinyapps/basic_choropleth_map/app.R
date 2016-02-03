@@ -1,7 +1,7 @@
 ## Choropleth map app ##
 
 # Load the necessary packages
-library(dplyr) ; library(rgdal) ; library(leaflet) ; library(classInt)
+library(dplyr) ; library(rgdal) ; library(leaflet)
 
 # Load the crime data
 crimes <- read.csv("crime_data.csv", header = T) %>% 
