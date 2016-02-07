@@ -4,7 +4,7 @@ library(dplyr) ; library(rgdal) ; library(leaflet) ; library(classInt) ; library
 
 crimes <- read.csv("crime_data.csv", header = T) %>% 
   filter(borough == "Manchester",
-         month == "2015-11-01") %>% 
+         date == "2015-11-01") %>% 
   group_by(category, lsoa) %>%
   summarise(n = n()) %>% 
   rename(LSOA11CD = lsoa) %>% 
