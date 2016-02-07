@@ -1,5 +1,3 @@
-## Dotplots app ##
-
 library(shiny) ; library(dplyr) ; library(rcdimple)
 
 crimes <- read.csv("crime_data.csv", header = T) %>%
@@ -7,17 +5,15 @@ crimes <- read.csv("crime_data.csv", header = T) %>%
   group_by(category, borough) %>%
   summarise(n = n())
 
-shinyApp(
-  
-  ui <- shinyUI(fluidPage(
+ui <- shinyUI(fluidPage(
     fluidRow(
       column(10, offset = 1, 
              br(),
              dimpleOutput('plot'),
              uiOutput("category", align = "center")
-      )))),
+      ))))
   
-  server = function(input, output) {
+server <- function(input, output, session) {
     
     output$category <- renderUI({
       selectInput("category", "Select a category:",
@@ -39,5 +35,7 @@ shinyApp(
                                 <b style = 'font-size:100%;'>", input$category, " ", paste('offences in November 2015'),
                                 "</div>"))
     })
-  
-    })
+    
+}
+
+shinyApp(ui, server)
