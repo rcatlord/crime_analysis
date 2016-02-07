@@ -4,7 +4,7 @@ This growing repository contains scripts that enable users to load, tidy, manipu
 
 #### Getting started
 
-Download R from [https://cran.r-project.org](https://cran.r-project.org), then load some sample crime data into your R session:
+Download R from [https://cran.r-project.org](https://cran.r-project.org) and load some sample crime data into your R session:
 
 ```
 download.file("https://raw.github.com/cat-lord/crime_analysis/master/sample_data/crime_data.csv", 
@@ -15,7 +15,7 @@ setwd("~/")
 crimes <- read.csv("crime_data.csv", header = T)
 ```
 
-or just right-click on the [raw](https://github.com/cat-lord/crime_analysis/blob/master/sample_data/crime_data.csv) button and download the CSV file.
+or just right-click on the [raw](https://github.com/cat-lord/crime_analysis/blob/master/sample_data/crime_data.csv) button and download the CSV file:
 
 <img src="https://github.com/cat-lord/crime_analysis/blob/master/images/raw.png" alt="raw" width="200">
 
