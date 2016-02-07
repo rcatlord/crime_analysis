@@ -39,7 +39,7 @@ server <- function(input, output) {
     h1$tooltip(useHTML = T, formatter = "#! function() { return '<b>' + 'Crimes: ' + '</b>' + this.y; } !#")
     h1$legend(enabled = F)
     h1$title(text = paste0("Crimes in ", input$borough))
-    h1$subtitle(text = "(December 2014 - November 2015)")
+    h1$subtitle(text = "(January - December 2015)")
     h1$set(width = 900, height = 400)
     return(h1)
   })
