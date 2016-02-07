@@ -15,10 +15,10 @@ library(ggplot2)
 
 df <- crimes %>%
   filter(borough == "Manchester") %>%
-  group_by(category, month) %>%
+  group_by(category, date) %>%
   summarise(n = n())
 
-ggplot(df, aes(x=category, y=month, fill=n)) +
+ggplot(df, aes(x=category, y=date, fill=n)) +
   geom_tile(aes(fill=n)) +
   geom_text(aes(label=n), size=4, color="black") +
   scale_x_discrete("", expand = c(0,0)) +
@@ -38,9 +38,9 @@ library(d3heatmap)
 
 df <- crimes %>%
   filter(borough == "Manchester") %>%
-  group_by(category, month) %>%
+  group_by(category, date) %>%
   summarise(n = n()) %>%
-  spread(month, n, fill = 0)
+  spread(date, n, fill = 0)
 row.names(df) <- df$category
 df$category <- NULL
 
