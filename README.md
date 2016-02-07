@@ -15,7 +15,7 @@ setwd("~/")
 crimes <- read.csv("crime_data.csv", header = T)
 ```
 
-or just right-click on the [raw](https://github.com/cat-lord/crime_analysis/blob/master/sample_data/crime_data.csv) button and download the CSV file:
+or just right-click on the ['Raw'](https://github.com/cat-lord/crime_analysis/blob/master/sample_data/crime_data.csv) button and download the CSV file:
 
 <img src="https://github.com/cat-lord/crime_analysis/blob/master/images/raw.png" alt="raw" width="200">
 
