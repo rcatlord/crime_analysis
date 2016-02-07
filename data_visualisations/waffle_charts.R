@@ -11,7 +11,7 @@ crimes <- read.csv("crime_data.csv", header = T)
 
 # Frequency of crime by borough (in descending order)
 df <- crimes %>% 
-  filter(date == "2015-11-01" & category == "Robbery") %>% 
+  filter(date == "2015-12-01" & category == "Robbery") %>% 
   count(borough, sort = TRUE) %>%
   mutate(percent = round(n/sum(n)*100, 1)) %>% 
   select(borough, percent) %>% 
@@ -23,8 +23,6 @@ df <- df[, order(-df[which(rownames(df) == '1'), ]) ]
 library(waffle) 
 waffle(df, rows = 4, size = 2, 
        colors=(RColorBrewer::brewer.pal(n=10,"Set3")),
-       title="Robbery as a proportion of total Robbery offences, 11/2015",
+       title="Borough level Robbery as a proportion of total Robbery offences, 12/2015",
        legend_pos = "bottom")
 ggsave("waffle.png", scale=1.5, dpi=300)
-
-
