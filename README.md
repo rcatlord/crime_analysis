@@ -15,6 +15,10 @@ setwd("~/")
 crimes <- read.csv("crime_data.csv", header = T)
 ```
 
+or just right-click on the [raw](https://github.com/cat-lord/crime_analysis/blob/master/sample_data/crime_data.csv) button and download the CSV file.
+
+<img src="https://github.com/cat-lord/crime_analysis/blob/master/images/raw.png" alt="raw" width="200">
+
 The data are crimes recorded by Greater Manchester Police between January and December 2015 which were downloaded from [data.police.uk](https://data.police.uk).
 
 The scripts and [shiny](http://shiny.rstudio.com) apps will work with any data downloaded from [data.police.uk](https://data.police.uk) but they will need to share the same structure, i.e. be [tidy](https://vimeo.com/33727555) first. Follow the [tidying_data](https://github.com/cat-lord/crime_analysis/blob/master/data/tidying_data.R) script for instructions.
