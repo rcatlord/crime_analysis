@@ -36,7 +36,7 @@ server <- function(input, output) {
   })
         
     output$dygraph <- renderDygraph({
-      crime_xts <- xts(selected()$n, order.by = as.Date(selected()date, format = "%Y-%m-%d"), frequency = 12)
+      crime_xts <- xts(selected()$n, order.by = as.Date(selected()$date, format = "%Y-%m-%d"), frequency = 12)
       
       dygraph(crime_xts, ylab = "Frequency") %>% 
         dySeries(label = "Crimes", color = "#3182bd", fillGraph = TRUE, strokeWidth = 3, drawPoints = TRUE, pointSize = 6) %>% 
