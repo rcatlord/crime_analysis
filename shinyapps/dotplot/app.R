@@ -1,7 +1,7 @@
 library(shiny) ; library(dplyr) ; library(rcdimple)
 
 crimes <- read.csv("crime_data.csv", header = T) %>%
-  filter(month == "2015-11-01") %>% 
+  filter(date == "2015-11-01") %>% 
   group_by(category, borough) %>%
   summarise(n = n())
 
