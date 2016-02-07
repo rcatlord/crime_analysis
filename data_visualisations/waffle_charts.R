@@ -11,7 +11,7 @@ crimes <- read.csv("crime_data.csv", header = T)
 
 # Frequency of crime by borough (in descending order)
 df <- crimes %>% 
-  filter(month == "2015-11-01" & category == "Robbery") %>% 
+  filter(date == "2015-11-01" & category == "Robbery") %>% 
   count(borough, sort = TRUE) %>%
   mutate(percent = round(n/sum(n)*100, 1)) %>% 
   select(borough, percent) %>% 
