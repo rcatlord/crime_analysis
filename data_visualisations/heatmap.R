@@ -16,8 +16,7 @@ library(ggplot2)
 df <- crimes %>%
   filter(borough == "Manchester") %>%
   group_by(category, date) %>%
-  summarise(n = n()) %>% 
-  arrange(desc(date))
+  summarise(n = n())
 
 ggplot(df, aes(x=category, y=date, fill=n)) +
   geom_tile(aes(fill=n)) +
