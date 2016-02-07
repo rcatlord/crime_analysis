@@ -39,7 +39,7 @@ ggsave("dotplot.png", scale = 2, dpi = 300)
 library(rcdimple)
 
 crimes %>% 
-  filter(month == "2015-11-01", 
+  filter(date == "2015-11-01", 
          category == "Bicycle theft" | category == "Burglary" | category == "Vehicle crime") %>% 
   group_by(category, borough) %>%
   summarise(n = n()) %>% 
