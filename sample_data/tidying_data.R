@@ -9,7 +9,6 @@ library(lubridate)
 setwd("../")
 
 # Read the crime data
-dec <- read.csv("2014-12-greater-manchester-street.csv", header = T, stringsAsFactors = FALSE)
 jan <- read.csv("2015-01-greater-manchester-street.csv", header = T, stringsAsFactors = FALSE)
 feb <- read.csv("2015-02-greater-manchester-street.csv", header = T, stringsAsFactors = FALSE)
 mar <- read.csv("2015-03-greater-manchester-street.csv", header = T, stringsAsFactors = FALSE)
@@ -21,10 +20,11 @@ aug <- read.csv("2015-08-greater-manchester-street.csv", header = T, stringsAsFa
 sep <- read.csv("2015-09-greater-manchester-street.csv", header = T, stringsAsFactors = FALSE)
 oct <- read.csv("2015-10-greater-manchester-street.csv", header = T, stringsAsFactors = FALSE)
 nov <- read.csv("2015-11-greater-manchester-street.csv", header = T, stringsAsFactors = FALSE)
+dec <- read.csv("2015-12-greater-manchester-street.csv", header = T, stringsAsFactors = FALSE)
 
 # Merge the data frames
-crimes <- do.call(rbind, list(dec, jan, feb, mar, apr, may, jun, jul, aug, sep, oct, nov))
-rm(dec, jan, feb, mar, apr, may, jun, jul, aug, sep, oct, nov) # remove the unused dataframes from the R session
+crimes <- do.call(rbind, list(jan, feb, mar, apr, may, jun, jul, aug, sep, oct, nov, dec))
+rm(jan, feb, mar, apr, may, jun, jul, aug, sep, oct, nov, dec) # remove the unused dataframes from the R session
 
 # Check the data
 glimpse(crimes)
@@ -42,7 +42,7 @@ crimes$Borough <- as.factor(crimes$Borough)
 levels(crimes$Borough) # check the different boroughs
 
 # Select and rename some of the variables
-crimes <- crimes %>% select(month = Month,
+crimes <- crimes %>% select(date = Month,
                             location = Location,
                             borough = Borough,
                             lsoa = LSOA.code,
@@ -61,4 +61,4 @@ crimes <- crimes %>% filter(category != "Anti-social behaviour")
 
 # Export the tidy data as a CSV for later use
 write.csv(crimes, "crime_data.csv", row.names = FALSE)
-saveRDS(crimes, file="crime_data.rds") # or as a smaller .rds file 
+saveRDS(crimes, file="crime_data.rds") # or as a smaller .rds file
