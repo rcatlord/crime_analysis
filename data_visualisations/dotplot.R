@@ -33,7 +33,7 @@ ggplot(df, aes(x = reorder(borough, n), y = n)) +
   scale_y_continuous(limits=c(0,max(df$n)))
 
 # Save the dotplot as a png file
-ggsave("dotplot.png", scale = 1.5, dpi = 300)
+ggsave("dotplot.png", scale = 2, dpi = 300)
 
 # Using rcdimple
 library(rcdimple)
