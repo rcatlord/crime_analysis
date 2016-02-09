@@ -31,7 +31,6 @@ ui <- shinyUI(fluidPage(
            br(),
            dygraphOutput("chart1"),
            br(),
-           br(),
            uiOutput('borough', align = "center"),
            uiOutput('category', align = "center")
     ))))
