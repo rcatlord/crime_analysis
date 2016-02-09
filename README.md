@@ -21,7 +21,7 @@ or just right-click on the ['Raw'](https://github.com/cat-lord/crime_analysis/bl
 
 The data are crimes recorded by Greater Manchester Police between January and December 2015 which were downloaded from [data.police.uk](https://data.police.uk).
 
-The scripts and [shiny](http://shiny.rstudio.com) apps will work with any data downloaded from [data.police.uk](https://data.police.uk) but they will need to share the same structure, i.e. be [tidy](https://vimeo.com/33727555) first. Follow the [tidying_data](https://github.com/cat-lord/crime_analysis/blob/master/data/tidying_data.R) script for instructions.
+The scripts and [shiny](http://shiny.rstudio.com) apps will work with any data downloaded from [data.police.uk](https://data.police.uk) but they will need to share the same structure, i.e. be [tidy](https://vimeo.com/33727555) first. Follow the [tidying_data](https://github.com/cat-lord/crime_analysis/blob/master/sample_data/tidying_data.R) script for instructions.
 
 #### The scripts
   
