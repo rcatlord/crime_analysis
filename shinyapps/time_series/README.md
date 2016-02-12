@@ -4,8 +4,6 @@ This [shiny](http://shiny.rstudio.com) app uses the [dygraphs](https://rstudio.g
 
 ![time_series](https://github.com/cat-lord/crime_analysis/blob/master/GIFs/time_series.gif)
 
-<br>
-
 Run the app locally in your R session with:
 
 ```
