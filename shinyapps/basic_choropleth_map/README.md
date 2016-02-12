@@ -4,7 +4,7 @@ This [shiny](http://shiny.rstudio.com) app uses the [leaflet](https://rstudio.gi
 <br>
 <br>
 
-![bar_charts](https://github.com/cat-lord/crime_analysis/blob/master/GIFs/basic_choropleth_map.gif)
+![basic_choropleth_map](https://github.com/cat-lord/crime_analysis/blob/master/GIFs/basic_choropleth_map.gif)
 
 <br>
 
