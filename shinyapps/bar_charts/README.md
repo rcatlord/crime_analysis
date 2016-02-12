@@ -1,7 +1,6 @@
 ### bar charts app
 
 This [shiny](http://shiny.rstudio.com) app uses the [Highcharts](http://www.highcharts.com) javascript library supported by the [rCharts](http://rcharts.io) R package.
-<br>
 
 ![bar_charts](https://github.com/cat-lord/crime_analysis/blob/master/GIFs/bar_charts.gif)
 
