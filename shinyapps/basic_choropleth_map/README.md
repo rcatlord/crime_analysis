@@ -1,12 +1,6 @@
-### choropleth map app (basic)
-
-This [shiny](http://shiny.rstudio.com) app uses the [leaflet](https://rstudio.github.io/leaflet/) R package.
-<br>
-<br>
-
 ![basic_choropleth_map](https://github.com/cat-lord/crime_analysis/blob/master/GIFs/basic_choropleth_map.gif)
 
-<br>
+This [shiny](http://shiny.rstudio.com) app uses the [leaflet](https://rstudio.github.io/leaflet/) R package.
 
 Run the app locally in your R session with:
 
