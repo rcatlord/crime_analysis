@@ -2,8 +2,6 @@
 
 This [shiny](http://shiny.rstudio.com) app uses the [Highcharts](http://www.highcharts.com) javascript library supported by the [rCharts](http://rcharts.io) R package.
 
-<br>
-
 Run the app locally in your R session with:
 
 ```
