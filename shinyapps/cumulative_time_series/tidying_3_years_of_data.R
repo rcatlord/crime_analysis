@@ -1,6 +1,6 @@
 ## Tidying 3 years of data ##
 
-# Place all of the CSV files downloaded from [data.police.uk](data.police.uk) in a single folder
+# Place all of the CSV files downloaded from data.police.uk in a single folder
 
 # Load the necessary packages
 library(tidyr) 
