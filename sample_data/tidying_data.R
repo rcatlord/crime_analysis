@@ -1,30 +1,26 @@
 ## Tidying data ##
 
+# Place all of the CSV files downloaded from [data.police.uk](data.police.uk) in a single folder
+
 # Load the necessary packages
 library(tidyr) 
 library(dplyr)
 library(lubridate)
 
-# Set your working directory to where the CSV files are stored
+# Set your working directory to the folder where the CSV files are stored
 setwd("../")
 
-# Read the crime data
-jan <- read.csv("2015-01-greater-manchester-street.csv", header = T, stringsAsFactors = FALSE)
-feb <- read.csv("2015-02-greater-manchester-street.csv", header = T, stringsAsFactors = FALSE)
-mar <- read.csv("2015-03-greater-manchester-street.csv", header = T, stringsAsFactors = FALSE)
-apr <- read.csv("2015-04-greater-manchester-street.csv", header = T, stringsAsFactors = FALSE)
-may <- read.csv("2015-05-greater-manchester-street.csv", header = T, stringsAsFactors = FALSE)
-jun <- read.csv("2015-06-greater-manchester-street.csv", header = T, stringsAsFactors = FALSE)
-jul <- read.csv("2015-07-greater-manchester-street.csv", header = T, stringsAsFactors = FALSE)
-aug <- read.csv("2015-08-greater-manchester-street.csv", header = T, stringsAsFactors = FALSE)
-sep <- read.csv("2015-09-greater-manchester-street.csv", header = T, stringsAsFactors = FALSE)
-oct <- read.csv("2015-10-greater-manchester-street.csv", header = T, stringsAsFactors = FALSE)
-nov <- read.csv("2015-11-greater-manchester-street.csv", header = T, stringsAsFactors = FALSE)
-dec <- read.csv("2015-12-greater-manchester-street.csv", header = T, stringsAsFactors = FALSE)
+# Read the CSV files and merge them into a single dataframe called 'crimes'
+filenames <- list.files("data", pattern="*.csv", full.names=TRUE)
+crimes <- read.csv(filenames[1], header = T)
 
-# Merge the data frames
-crimes <- do.call(rbind, list(jan, feb, mar, apr, may, jun, jul, aug, sep, oct, nov, dec))
-rm(jan, feb, mar, apr, may, jun, jul, aug, sep, oct, nov, dec) # remove the unused dataframes from the R session
+for(i in 2:length(filenames)){
+  crimes2 <- read.csv(filenames[i], header = T)
+  crimes <- rbind(crimes, crimes2)
+}
+
+# Remove the redundant objects from the R session
+rm(crimes2, filenames, i)
 
 # Check the data
 glimpse(crimes)
