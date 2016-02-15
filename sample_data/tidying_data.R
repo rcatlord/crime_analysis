@@ -7,8 +7,8 @@ library(tidyr)
 library(dplyr)
 library(lubridate)
 
-# Set your working directory to the folder where the CSV files are stored
-setwd("../")
+# Set your working directory to a folder called 'data' where the CSV files are stored
+setwd("../data")
 
 # Read the CSV files and merge them into a single dataframe called 'crimes'
 filenames <- list.files("data", pattern="*.csv", full.names=TRUE)
