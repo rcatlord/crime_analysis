@@ -1,70 +1,23 @@
 ## Tidying 3 years of data ##
 
+# Place all of the CSV files downloaded from [data.police.uk](data.police.uk) in a single folder
+
 # Load the necessary packages
 library(tidyr) 
 library(dplyr)
 library(lubridate)
 
-# Set your working directory to where the CSV files are stored
+# Set your working directory to the folder where the CSV files are stored
 setwd("../")
 
-# Read the 2013 crime data
-jan <- read.csv("2013-01-greater-manchester-street.csv", header = T, stringsAsFactors = FALSE)
-feb <- read.csv("2013-02-greater-manchester-street.csv", header = T, stringsAsFactors = FALSE)
-mar <- read.csv("2013-03-greater-manchester-street.csv", header = T, stringsAsFactors = FALSE)
-apr <- read.csv("2013-04-greater-manchester-street.csv", header = T, stringsAsFactors = FALSE)
-may <- read.csv("2013-05-greater-manchester-street.csv", header = T, stringsAsFactors = FALSE)
-jun <- read.csv("2013-06-greater-manchester-street.csv", header = T, stringsAsFactors = FALSE)
-jul <- read.csv("2013-07-greater-manchester-street.csv", header = T, stringsAsFactors = FALSE)
-aug <- read.csv("2013-08-greater-manchester-street.csv", header = T, stringsAsFactors = FALSE)
-sep <- read.csv("2013-09-greater-manchester-street.csv", header = T, stringsAsFactors = FALSE)
-oct <- read.csv("2013-10-greater-manchester-street.csv", header = T, stringsAsFactors = FALSE)
-nov <- read.csv("2013-11-greater-manchester-street.csv", header = T, stringsAsFactors = FALSE)
-dec <- read.csv("2013-12-greater-manchester-street.csv", header = T, stringsAsFactors = FALSE)
+# Read the CSV files and merge them into a single dataframe called 'crimes'
+filenames <- list.files("data", pattern="*.csv", full.names=TRUE)
+crimes <- read.csv(filenames[1], header = T)
 
-# Merge the 2013 data frames
-crimes_2013 <- do.call(rbind, list(jan, feb, mar, apr, may, jun, jul, aug, sep, oct, nov, dec))
-rm(jan, feb, mar, apr, may, jun, jul, aug, sep, oct, nov, dec)
-
-# Read the 2014 crime data
-jan <- read.csv("2014-01-greater-manchester-street.csv", header = T, stringsAsFactors = FALSE)
-feb <- read.csv("2014-02-greater-manchester-street.csv", header = T, stringsAsFactors = FALSE)
-mar <- read.csv("2014-03-greater-manchester-street.csv", header = T, stringsAsFactors = FALSE)
-apr <- read.csv("2014-04-greater-manchester-street.csv", header = T, stringsAsFactors = FALSE)
-may <- read.csv("2014-05-greater-manchester-street.csv", header = T, stringsAsFactors = FALSE)
-jun <- read.csv("2014-06-greater-manchester-street.csv", header = T, stringsAsFactors = FALSE)
-jul <- read.csv("2014-07-greater-manchester-street.csv", header = T, stringsAsFactors = FALSE)
-aug <- read.csv("2014-08-greater-manchester-street.csv", header = T, stringsAsFactors = FALSE)
-sep <- read.csv("2014-09-greater-manchester-street.csv", header = T, stringsAsFactors = FALSE)
-oct <- read.csv("2014-10-greater-manchester-street.csv", header = T, stringsAsFactors = FALSE)
-nov <- read.csv("2014-11-greater-manchester-street.csv", header = T, stringsAsFactors = FALSE)
-dec <- read.csv("2014-12-greater-manchester-street.csv", header = T, stringsAsFactors = FALSE)
-
-# Merge the 2014 data frames
-crimes_2014 <- do.call(rbind, list(jan, feb, mar, apr, may, jun, jul, aug, sep, oct, nov, dec))
-rm(jan, feb, mar, apr, may, jun, jul, aug, sep, oct, nov, dec)
-
-# Read the 2015 crime data
-jan <- read.csv("2015-01-greater-manchester-street.csv", header = T, stringsAsFactors = FALSE)
-feb <- read.csv("2015-02-greater-manchester-street.csv", header = T, stringsAsFactors = FALSE)
-mar <- read.csv("2015-03-greater-manchester-street.csv", header = T, stringsAsFactors = FALSE)
-apr <- read.csv("2015-04-greater-manchester-street.csv", header = T, stringsAsFactors = FALSE)
-may <- read.csv("2015-05-greater-manchester-street.csv", header = T, stringsAsFactors = FALSE)
-jun <- read.csv("2015-06-greater-manchester-street.csv", header = T, stringsAsFactors = FALSE)
-jul <- read.csv("2015-07-greater-manchester-street.csv", header = T, stringsAsFactors = FALSE)
-aug <- read.csv("2015-08-greater-manchester-street.csv", header = T, stringsAsFactors = FALSE)
-sep <- read.csv("2015-09-greater-manchester-street.csv", header = T, stringsAsFactors = FALSE)
-oct <- read.csv("2015-10-greater-manchester-street.csv", header = T, stringsAsFactors = FALSE)
-nov <- read.csv("2015-11-greater-manchester-street.csv", header = T, stringsAsFactors = FALSE)
-dec <- read.csv("2015-12-greater-manchester-street.csv", header = T, stringsAsFactors = FALSE)
-
-# Merge the 2015 data frames
-crimes_2015 <- do.call(rbind, list(jan, feb, mar, apr, may, jun, jul, aug, sep, oct, nov, dec))
-rm(jan, feb, mar, apr, may, jun, jul, aug, sep, oct, nov, dec)
-
-# Merge the three years
-crimes <- do.call(rbind, list(crimes_2013, crimes_2014, crimes_2015))
-rm(crimes_2013, crimes_2014, crimes_2015) # remove the unused dataframes from the R session
+for(i in 2:length(filenames)){
+  crimes2 <- read.csv(filenames[i], header = T)
+  crimes <- rbind(crimes, crimes2)
+}
 
 # Check the data
 glimpse(crimes)
