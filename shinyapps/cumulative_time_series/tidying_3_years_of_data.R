@@ -1,6 +1,6 @@
 ## Tidying 3 years of data ##
 
-# Place all of the CSV files downloaded from data.police.uk in a single folder
+# Place all of the CSV files downloaded from data.police.uk into a single folder called 'data'
 
 # Load the necessary packages
 library(tidyr) 
@@ -8,7 +8,7 @@ library(dplyr)
 library(lubridate)
 
 # Set your working directory to the folder where the CSV files are stored
-setwd("../")
+setwd("../data")
 
 # Read the CSV files and merge them into a single dataframe called 'crimes'
 filenames <- list.files("data", pattern="*.csv", full.names=TRUE)
