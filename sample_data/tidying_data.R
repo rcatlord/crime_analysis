@@ -1,13 +1,13 @@
 ## Tidying data ##
 
-# Place all of the CSV files downloaded from data.police.uk in a single folder
+# Place all of the CSV files downloaded from data.police.uk into a single folder called 'data'
 
 # Load the necessary packages
 library(tidyr) 
 library(dplyr)
 library(lubridate)
 
-# Set your working directory to a folder called 'data' where the CSV files are stored
+# Set your working directory to the folder where the CSV files are stored
 setwd("../data")
 
 # Read the CSV files and merge them into a single dataframe called 'crimes'
