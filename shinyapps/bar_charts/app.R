@@ -1,6 +1,6 @@
 ## Bar charts app ##
 
-library(shiny) ; library(tidyr) ; library(dplyr) ; library(rCharts)
+library(shiny) ; library(tidyr) ; library(dplyr) ; library(highcharter)
 
 crimes <- read.csv("crime_data.csv", header = T) %>% 
   group_by(borough, category) %>%
@@ -8,13 +8,14 @@ crimes <- read.csv("crime_data.csv", header = T) %>%
 
 ui <- shinyUI(fluidPage(
   fluidRow(
-    column(10, offset = 1, 
+    column(7, offset = 1,
            br(),
-           showOutput("plot", "highcharts"),
+           highchartOutput("plot",height = "500px")),
+    column(3,
            br(),
-           br(),
-           uiOutput("borough", align = "center")
-    ))))
+           uiOutput("borough", align = "left")))
+))
+
 
 server <- function(input, output) {
   
@@ -28,20 +29,21 @@ server <- function(input, output) {
     df <- filter(crimes, borough==input$borough)
   })
   
-  output$plot <- renderChart2({
+  output$plot <- renderHighchart({
     df <- selected()[order(selected()$n),]
     
-    h1 <- Highcharts$new()
-    h1$series(data = df$n, type = "bar", color = '#3182bd')
-    h1$xAxis(categories = df$category)
-    h1$yAxis(title = list(text = "Number of crimes"))
-    h1$credits(text = "data.police.uk", href = "http://data.police.uk")
-    h1$tooltip(useHTML = T, formatter = "#! function() { return '<b>' + 'Crimes: ' + '</b>' + this.y; } !#")
-    h1$legend(enabled = F)
-    h1$title(text = paste0("Crimes in ", input$borough))
-    h1$subtitle(text = "(January - December 2015)")
-    h1$set(width = 900, height = 400)
-    return(h1)
+    hc <- highchart() %>%
+      hc_title(text = paste0("Crimes in ", input$borough)) %>% 
+      hc_subtitle(text = "January - December 2015") %>% 
+      hc_xAxis(categories = df$category) %>% 
+      hc_add_series(name = "Number of crimes", data = df$n, type = "bar", showInLegend = FALSE) %>% 
+      hc_yAxis(title = list(text = "")) %>% 
+      hc_credits(enabled = TRUE, text = "data.police.uk",
+                 href = "http://data.police.uk",
+                 style = list(fontSize = "12px")) %>%
+      hc_exporting(enabled = TRUE)
+    hc %>% hc_add_theme(hc_theme_538())
+    
   })
   
 }
