@@ -6,7 +6,7 @@ This growing repository contains scripts that enable users to load, tidy, manipu
 
 Download R from [https://cran.r-project.org](https://cran.r-project.org) and load some sample crime data into your R session:
 
-```
+``` r
 install.packages(c("tidyverse", "lubridate"))
 
 library(tidyverse) ; library(lubridate)
