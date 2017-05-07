@@ -1,13 +1,13 @@
 ## Summary statistics ##
 
 # Load the necessary packages
-library(dplyr)
+library(tidyverse)
 
 # Set your working directory to where the crime data are stored
 setwd("../")
 
 # Read the data
-crimes <- read.csv("crime_data.csv", header = T)
+crimes <- read_csv("crime_data.csv")
 
 # Frequency of crime by borough (in descending order)
 count(crimes, borough, sort = TRUE)
