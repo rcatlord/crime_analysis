@@ -3,7 +3,7 @@
 # A small proportion of places, offenders, victims, and property account for most of the crime.
 
 # Load the necessary packages
-library(dplyr)
+library(tidyverse)
 
 # Set your working directory to where the crime data are stored
 setwd("../")
@@ -33,3 +33,4 @@ library(gridExtra)
 pdf("80-20_rule.pdf", height=11, width=8.5)
 grid.table(tbl, rows = NULL)
 dev.off()
+
