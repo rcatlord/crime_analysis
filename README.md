@@ -7,12 +7,12 @@ This growing repository contains scripts that enable users to load, tidy, manipu
 Download R from [https://cran.r-project.org](https://cran.r-project.org) and load some sample crime data into your R session:
 
 ```
-download.file("https://raw.github.com/cat-lord/crime_analysis/master/sample_data/crime_data.csv", 
-              destfile = "~/crime_data.csv", method = "curl") 
+install.packages(c("tidyverse", "lubridate"))
 
-setwd("~/")
+library(tidyverse) ; library(lubridate)
 
-crimes <- read.csv("crime_data.csv", header = T)
+crimes <- read_csv("https://raw.githubusercontent.com/rcatlord/crime_analysis/master/sample_data/crime_data.csv") %>% 
+  mutate(date = ymd(date))
 ```
 
 or just right-click on the ['Raw'](https://github.com/cat-lord/crime_analysis/blob/master/sample_data/crime_data.csv) button and download the CSV file:
